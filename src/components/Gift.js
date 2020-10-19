@@ -19,7 +19,8 @@ import { red } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: '90%',
+    width: '90%',
+    maxWidth: '500px',
     margin: 'auto',
     marginBottom: '1.25rem',
     backgroundColor: '#efefef'
@@ -34,21 +35,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
+
 const Gift = ({ gift, handleDelete }) => {
   const { name, link, price, description, image } = gift;
+
+  const formattedPrice = `$${price}`;
 
   const classes = useStyles();
 
   return (
     <Card key={ link } className={ classes.root }>
-      <CardHeader title={ name } subheader={ price } />
+      <CardHeader title={ name } subheader={ formattedPrice } />
       <CardContent>
-        <CardMedia
+        {/* <CardMedia
           className={ classes.media }
           image={ image }
           title={ name }
-        />
-        <Typography variant='body2' color='textSecondary' component='p'>{ link }</Typography>
+        /> */}
+        <a href={ link }>
+          <Typography variant='body2' color='textSecondary' component='p'>{ link }</Typography>
+        </a>
         <Typography variant='body2' color='textSecondary' component='p'>Additional Details:</Typography>
         <Typography variant='body2' color='textSecondary' component='p'>{ description }</Typography>
         <Button className={ classes.deleteButton } variant='contained' color='secondary' onClick={ () => handleDelete(link) }>Delete Gift</Button>

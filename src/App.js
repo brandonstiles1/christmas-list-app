@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import GiftList from './components/GiftList';
-import GiftEntryForm from './components/GiftEntryForm';
+import AddGiftForm from './components/AddGiftForm';
 import BottomAppBar from './components/BottomAppBar';
 import Backdrop from '@material-ui/core/Backdrop';
 import Modal from '@material-ui/core/Modal';
@@ -116,7 +116,7 @@ const App = () => {
       >
         <Fade in={ open }>
           <div className={ classes.paper }>
-            <GiftEntryForm handleSubmit={ addGift } onClose={ closeModal } />
+            <AddGiftForm handleSubmit={ addGift } onClose={ closeModal } />
           </div>
         </Fade>
       </Modal>
